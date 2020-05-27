@@ -1,0 +1,282 @@
+[
+  {
+    "_id": "5ec985b5bf3d3712c58ae185",
+    "location": "AK",
+    "displayLocation": "Alaska"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae186",
+    "location": "AL",
+    "displayLocation": "Alabama"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae187",
+    "location": "AR",
+    "displayLocation": "Arkansas"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae188",
+    "location": "AS",
+    "displayLocation": "American Samoa"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae189",
+    "location": "AZ",
+    "displayLocation": "Arizona"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae18a",
+    "location": "CA",
+    "displayLocation": "California"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae18b",
+    "location": "CO",
+    "displayLocation": "Colorado"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae18c",
+    "location": "CT",
+    "displayLocation": "Connecticut"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae18d",
+    "location": "DC",
+    "displayLocation": "District of Columbia"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae18e",
+    "location": "DE",
+    "displayLocation": "Delaware"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae18f",
+    "location": "FL",
+    "displayLocation": "Florida"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae190",
+    "location": "GA",
+    "displayLocation": "Georgia"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae191",
+    "location": "GU",
+    "displayLocation": "Guam"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae192",
+    "location": "HI",
+    "displayLocation": "Hawaii"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae193",
+    "location": "IA",
+    "displayLocation": "Iowa"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae194",
+    "location": "ID",
+    "displayLocation": "Idaho"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae195",
+    "location": "IL",
+    "displayLocation": "Illinois"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae196",
+    "location": "IN",
+    "displayLocation": "Indiana"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae197",
+    "location": "KS",
+    "displayLocation": "Kansas"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae198",
+    "location": "KY",
+    "displayLocation": "Kentucky"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae199",
+    "location": "LA",
+    "displayLocation": "Louisiana"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae19a",
+    "location": "MA",
+    "displayLocation": "Massachusetts"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae19b",
+    "location": "MD",
+    "displayLocation": "Maryland"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae19c",
+    "location": "ME",
+    "displayLocation": "Maine"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae19d",
+    "location": "MI",
+    "displayLocation": "Michigan"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae19e",
+    "location": "MN",
+    "displayLocation": "Minnesota"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae19f",
+    "location": "MO",
+    "displayLocation": "Missouri"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1a0",
+    "location": "MP",
+    "displayLocation": "Northern Mariana Islands"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1a1",
+    "location": "MS",
+    "displayLocation": "Mississippi"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1a2",
+    "location": "MT",
+    "displayLocation": "Montana"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1a3",
+    "location": "NC",
+    "displayLocation": "North Carolina"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1a4",
+    "location": "ND",
+    "displayLocation": "North Dakota"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1a5",
+    "location": "NE",
+    "displayLocation": "Nebraska"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1a6",
+    "location": "NH",
+    "displayLocation": "New Hampshire"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1a7",
+    "location": "NJ",
+    "displayLocation": "New Jersey"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1a8",
+    "location": "NM",
+    "displayLocation": "New Mexico"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1a9",
+    "location": "NV",
+    "displayLocation": "Nevada"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1aa",
+    "location": "NY",
+    "displayLocation": "New York"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1ab",
+    "location": "OH",
+    "displayLocation": "Ohio"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1ac",
+    "location": "OK",
+    "displayLocation": "Oklahoma"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1ad",
+    "location": "OR",
+    "displayLocation": "Oregon"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1ae",
+    "location": "PA",
+    "displayLocation": "Pennsylvania"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1af",
+    "location": "PR",
+    "displayLocation": "Puerto Rico"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1b0",
+    "location": "RI",
+    "displayLocation": "Rhode Island"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1b1",
+    "location": "SC",
+    "displayLocation": "South Carolina"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1b2",
+    "location": "SD",
+    "displayLocation": "South Dakota"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1b3",
+    "location": "TN",
+    "displayLocation": "Tennessee"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1b4",
+    "location": "TX",
+    "displayLocation": "Texas"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1b5",
+    "location": "UT",
+    "displayLocation": "Utah"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1b6",
+    "location": "VA",
+    "displayLocation": "Virginia"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1b7",
+    "location": "VI",
+    "displayLocation": "US Virgin Islands"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1b8",
+    "location": "VT",
+    "displayLocation": "Vermont"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1b9",
+    "location": "WA",
+    "displayLocation": "Washington"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1ba",
+    "location": "WI",
+    "displayLocation": "Wisconsin"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1bb",
+    "location": "WV",
+    "displayLocation": "West Virginia"
+  },
+  {
+    "_id": "5ec985b5bf3d3712c58ae1bc",
+    "location": "WY",
+    "displayLocation": "Wyoming"
+  }
+]
