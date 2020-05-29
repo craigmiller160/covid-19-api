@@ -1,5 +1,5 @@
 const startExpress = require('./express');
-const { cloudConfig } = require('./config');
+const { cloudConfig } = require('@craigmiller160/covid-19-config-mongo');
 
 console.log('Starting application');
 cloudConfig.init()
