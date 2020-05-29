@@ -28,21 +28,6 @@ const getStateHistoricalData = async (stateName, startDate = moment('1970-01-01'
     }
 };
 
-// TODO delete this
-const setStateHistoricalData = async (stateData) => {
-    try {
-        await connect(async (db) => {
-            await db.collection(COLLECTION)
-                .deleteMany();
-            await db.collection(COLLECTION)
-                .insertMany(stateData);
-        });
-    } catch (ex) {
-        throw new TraceError('Error setting state historical data', ex);
-    }
-};
-
 module.exports = {
-    getStateHistoricalData,
-    setStateHistoricalData
+    getStateHistoricalData
 };

@@ -19,21 +19,6 @@ const getAllCountryCurrentData = async (sortKey = SORT_KEY_TOTAL_CASES, sortOrde
     }
 };
 
-// TODO delete this
-const setCountryCurrentData = async (countryData) => {
-    try {
-        await connect(async (db) => {
-            await db.collection(COLLECTION)
-                .deleteMany();
-            await db.collection(COLLECTION)
-                .insertMany(countryData);
-        });
-    } catch (ex) {
-        throw new TraceError('Error setting current country data', ex);
-    }
-};
-
 module.exports = {
-    getAllCountryCurrentData,
-    setCountryCurrentData
+    getAllCountryCurrentData
 };
