@@ -17,6 +17,7 @@ const getStateList = async () => {
     }
 };
 
+// TODO delete this
 const setStateList = async (stateList) => {
     try {
         await connect(async (db) => {

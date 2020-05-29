@@ -17,6 +17,7 @@ const getCountryList = async () => {
     }
 };
 
+// TODO delete this
 const setCountryList = async (countryList) => {
     try {
         await connect(async (db) => {

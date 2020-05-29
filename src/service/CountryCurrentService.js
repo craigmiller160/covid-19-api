@@ -19,6 +19,7 @@ const getAllCountryCurrentData = async (sortKey = SORT_KEY_TOTAL_CASES, sortOrde
     }
 };
 
+// TODO delete this
 const setCountryCurrentData = async (countryData) => {
     try {
         await connect(async (db) => {

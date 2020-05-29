@@ -4,6 +4,7 @@ const moment = require('moment');
 
 const COLLECTION = 'metadata';
 
+// TODO delete this
 const setMetadata = async (downloadDate) => {
     try {
         await connect(async (db) => {

@@ -28,6 +28,7 @@ const getStateHistoricalData = async (stateName, startDate = moment('1970-01-01'
     }
 };
 
+// TODO delete this
 const setStateHistoricalData = async (stateData) => {
     try {
         await connect(async (db) => {

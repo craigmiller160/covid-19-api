@@ -28,6 +28,7 @@ const getCountryHistoricalData = async (countryName, startDate = moment('1970-01
     }
 };
 
+// TODO delete this
 const setCountryHistoricalData = async (countryData) => {
     try {
         await connect(async (db) => {
