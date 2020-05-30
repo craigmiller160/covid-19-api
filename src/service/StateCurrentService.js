@@ -1,4 +1,4 @@
-const { connect } = require('../mongo');
+const { connect } = require('@craigmiller160/covid-19-config-mongo');
 const TraceError = require('trace-error');
 const { SORT_KEY_TOTAL_CASES, SORT_ORDER_DESC, getSort, bumpMissingDataElements } = require('./sortUtils');
 
@@ -19,20 +19,6 @@ const getAllStateCurrentData = async (sortKey = SORT_KEY_TOTAL_CASES, sortOrder 
     }
 };
 
-const setStateCurrentData = async (stateData) => {
-    try {
-        const data = await connect(async (db) => {
-            await db.collection(COLLECTION)
-                .deleteMany();
-            await db.collection(COLLECTION)
-                .insertMany(stateData);
-        });
-    } catch (ex) {
-        throw new TraceError('Error setting current state data', ex);
-    }
-};
-
 module.exports = {
-    getAllStateCurrentData,
-    setStateCurrentData
+    getAllStateCurrentData
 };

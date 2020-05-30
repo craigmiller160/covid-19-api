@@ -1,4 +1,4 @@
-const { connect } = require('../mongo');
+const { connect } = require('@craigmiller160/covid-19-config-mongo');
 const TraceError = require('trace-error');
 const moment = require('moment');
 
@@ -28,20 +28,6 @@ const getCountryHistoricalData = async (countryName, startDate = moment('1970-01
     }
 };
 
-const setCountryHistoricalData = async (countryData) => {
-    try {
-        await connect(async (db) => {
-            await db.collection(COLLECTION)
-                .deleteMany();
-            await db.collection(COLLECTION)
-                .insertMany(countryData);
-        });
-    } catch (ex) {
-        throw new TraceError('Error setting historical country data', ex);
-    }
-};
-
 module.exports = {
-    getCountryHistoricalData,
-    setCountryHistoricalData
+    getCountryHistoricalData
 };
