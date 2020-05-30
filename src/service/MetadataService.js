@@ -12,7 +12,7 @@ const getMetadata = async () => {
         );
         return {
             ...data,
-            downloadDate: moment(data.downloadDate).format('YYYY-MM-DD HH:mm:ssZ')
+            downloadDate: data ? moment(data.downloadDate).format('YYYY-MM-DD HH:mm:ssZ') : null
         };
     } catch (ex) {
         throw new TraceError('Error getting metadata', ex);
