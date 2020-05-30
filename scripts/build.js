@@ -45,7 +45,6 @@ const createArchive = () => {
 
     archive.directory(path.resolve(cwd, 'src'), 'src');
     archive.file(path.resolve(cwd, 'package.json'), { name: 'package.json' });
-    archive.file(path.resolve(cwd, 'yarn.lock'), { name: 'yarn.lock' });
 
     archive.finalize();
 };
