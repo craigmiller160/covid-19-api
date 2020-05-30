@@ -1,10 +1,11 @@
 const qs = require('qs');
+const { logger } = require('@craigmiller160/covid-19-config-mongo');
 
 const loggerMiddleware = (req, res, next) => {
     const request = `${req.method} ${req.path}?${qs.stringify(req.query)}`
-    console.log(`Received: ${request}`);
+    logger.debug(`Received: ${request}`);
     res.on('finish', () => {
-        console.log(`${res.statusCode} ${request}`);
+        logger.info(`${res.statusCode} ${request}`);
     });
     next();
 };

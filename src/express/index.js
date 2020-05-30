@@ -7,6 +7,7 @@ const getStatesRoute = require('./routes/getStates');
 const getCountryCurrentData = require('./routes/getCountryCurrentData');
 const getStateHistoricalData = require('./routes/getStateHistoricalData');
 const getStateCurrentData = require('./routes/getStateCurrentData');
+const { logger } = require('@craigmiller160/covid-19-config-mongo');
 
 const app = express();
 const port = process.env.PORT;
@@ -24,7 +25,7 @@ getStateCurrentData(app);
 applyEndMiddleware(app);
 
 const startExpressServer = () => {
-    app.listen(port, () => console.log(`Express server running on port ${port}`));
+    app.listen(port, () => logger.info(`Express server running on port ${port}`));
 };
 
 module.exports = startExpressServer;
