@@ -6,6 +6,7 @@ const getMetadata = require('./routes/getMetadata');
 const getStatesRoute = require('./routes/getStates');
 const getCountryCurrentData = require('./routes/getCountryCurrentData');
 const getStateHistoricalData = require('./routes/getStateHistoricalData');
+const healthcheck = require('./routes/healthcheck');
 const getStateCurrentData = require('./routes/getStateCurrentData');
 const { logger } = require('@craigmiller160/covid-19-config-mongo');
 
@@ -21,6 +22,7 @@ getStatesRoute(app);
 getCountryCurrentData(app);
 getStateHistoricalData(app);
 getStateCurrentData(app);
+healthcheck(app);
 
 applyEndMiddleware(app);
 
