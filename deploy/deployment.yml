@@ -22,3 +22,9 @@ spec:
                 name: mongodb-config
             - configMapRef:
                 name: covid-19-api-config
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 300
