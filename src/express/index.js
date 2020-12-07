@@ -27,6 +27,8 @@ const getStateHistoricalData = require('./routes/getStateHistoricalData');
 const healthcheck = require('./routes/healthcheck');
 const getStateCurrentData = require('./routes/getStateCurrentData');
 const { logger } = require('@craigmiller160/covid-19-config-mongo');
+const tlsProps = require('./prepareTlsProps');
+const https = require('https');
 
 const app = express();
 const port = process.env.PORT;
@@ -45,7 +47,8 @@ healthcheck(app);
 applyEndMiddleware(app);
 
 const startExpressServer = () => {
-    app.listen(port, () => logger.info(`Express server running on port ${port}`));
+    const server = https.createServer(tlsProps, app);
+    server.listen(port, () => logger.info(`Express server running on port ${port}`));
 };
 
 module.exports = startExpressServer;
