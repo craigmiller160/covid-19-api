@@ -18,6 +18,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { constants } = require('crypto');
 
 const ciphers = [
     'ECDHE-ECDSA-AES256-GCM-SHA384',
@@ -35,5 +36,6 @@ const ciphers = [
 module.exports = {
     key: fs.readFileSync(path.resolve(__dirname, '../cert/key.pem')),
     cert: fs.readFileSync(path.resolve(__dirname, '../cert/certificate.pem')),
-    ciphers: ciphers.join(';')
+    ciphers: ciphers.join(';'),
+    secureProtocol: constants.SSL_OP_NO_TLSv1_1 | constants.SSL_OP_NO_TLSv1 | constants.SSL_OP_NO_SSLv3 | constants.SSL_OP_NO_SSLv2
 };
