@@ -18,8 +18,6 @@
 
 const startExpress = require('./express');
 const { cloudConfig, logger } = require('@craigmiller160/covid-19-config-mongo');
-const handleMongoPasswordEnv = require('./handleMongoPasswordEnv');
 
-handleMongoPasswordEnv();
 logger.info('Starting application');
 startExpress();
