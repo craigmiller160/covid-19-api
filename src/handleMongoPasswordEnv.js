@@ -16,10 +16,8 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const startExpress = require('./express');
-const { cloudConfig, logger } = require('@craigmiller160/covid-19-config-mongo');
-const handleMongoPasswordEnv = require('./handleMongoPasswordEnv');
-
-handleMongoPasswordEnv();
-logger.info('Starting application');
-startExpress();
+module.exports = () => {
+    if (!process.env.MONGO_PASSWORD) {
+        process.env.MONGO_PASSWORD = process.env.MONGO_ROOT_PASSWORD;
+    }
+};
