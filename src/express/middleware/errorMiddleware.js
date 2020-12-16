@@ -30,7 +30,8 @@ const errorMiddleware = (error, req, res, next) => {
             exceptionMessage: error.message
         };
     } else {
-        logger.error(`Error: ${error.message}`, error.error);
+        logger.error(`Error: ${error.message}`);
+        logger.error(error.error);
         errorPayload = {
             status: error.status || 500,
             path,
