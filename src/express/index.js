@@ -32,6 +32,7 @@ const https = require('https');
 
 const app = express();
 const port = process.env.PORT;
+app.disable('x-powered-by');
 
 applyStartMiddleware(app);
 
