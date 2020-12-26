@@ -16,14 +16,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const cors = require('cors');
 const bodyParser = require('body-parser');
 const loggerMiddleware = require('./loggerMiddleware');
 const errorMiddleware = require('./errorMiddleware');
 const notFoundMiddleware = require('./notFoundMiddleware');
 
 const applyStartMiddleware = (app) => {
-    app.use(cors());
     app.use(bodyParser.json());
     app.use(loggerMiddleware);
 };
