@@ -1,6 +1,10 @@
 {
   "name": "@craigmiller160/covid-19-api",
+<<<<<<< HEAD
   "version": "1.10.0-beta",
+=======
+  "version": "1.9.1",
+>>>>>>> master
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -9,7 +13,7 @@
     "build": "node scripts/build.js"
   },
   "dependencies": {
-    "@craigmiller160/covid-19-config-mongo": "1.2.2",
+    "@craigmiller160/covid-19-config-mongo": "1.2.4",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "env-cmd": "^10.1.0",
