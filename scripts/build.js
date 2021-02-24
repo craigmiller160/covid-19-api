@@ -7,7 +7,7 @@ const version = packageJson.version;
 const name = packageJson.name.replace('@craigmiller160/', '');
 
 const cwd = process.cwd();
-const buildDirPath = path.resolve(cwd, 'deploy/build');
+const buildDirPath = path.resolve(cwd, 'build');
 const outputFilePath = path.resolve(buildDirPath, `${name}-${version}.zip`);
 
 const deleteBuildDir = () => {
