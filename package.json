@@ -1,6 +1,6 @@
 {
   "name": "@craigmiller160/covid-19-api",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "main": "index.js",
   "files": [
     "src"
