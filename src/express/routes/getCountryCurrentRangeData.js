@@ -16,15 +16,21 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const { getAllCountryCurrentRangeData } = require('../../service/CountryCurrentService');
+const moment = require('moment');
+const { getTotalsForRange } = require('../../service/CountryHistoricalService');
+
+const MONTH_FORMAT = 'MMYYYY';
 
 const createRoute = (app) => {
     app.get('/countries/current/range', async (req, res, next) => {
         const sortKey = req.query.sortKey || undefined;
         const sortOrder = req.query.sortOrder || undefined;
+        // TODO need default start/end months... maybe enforce in UI?
+        const startDate = moment(req.query.startMonth, MONTH_FORMAT);
+        const endDate = moment(req.query.endMonth, MONTH_FORMAT)''
 
         try {
-            const data = await getAllCountryCurrentRangeData(sortKey, sortOrder);
+            const data = await getTotalsForRange(startDate, endDate, sortKey, sortOrder);
             res.json(data);
         } catch (ex) {
             next({
