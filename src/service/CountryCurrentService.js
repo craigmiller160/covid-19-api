@@ -37,6 +37,11 @@ const getAllCountryCurrentData = async (sortKey = SORT_KEY_TOTAL_CASES, sortOrde
     }
 };
 
+const getAllCountryCurrentDataForRange = async (sortKey = SORT_KEY_TOTAL_CASES, sortOrder = SORT_ORDER_DESC) => {
+
+};
+
 module.exports = {
-    getAllCountryCurrentData
+    getAllCountryCurrentData,
+    getAllCountryCurrentDataForRange
 };
