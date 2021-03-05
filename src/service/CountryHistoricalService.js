@@ -52,7 +52,6 @@ const getCountryHistoricalData = async (countryName, startDate = moment('1970-01
 const getTotalsForRange = async (startDate = DEFAULT_START_DATE, endDate = DEFAULT_END_DATE, sortKey = SORT_KEY_TOTAL_CASES, sortOrder = SORT_ORDER_DESC) => {
     const sort = getSort(sortKey, sortOrder);
     const query = {
-        // TODO add filter to exclude anything without the two fields we care about
         date: {
             '$in': [
                 startDate,
@@ -69,7 +68,6 @@ const getTotalsForRange = async (startDate = DEFAULT_START_DATE, endDate = DEFAU
                 .sort(sort)
                 .toArray()
         );
-        console.log(data instanceof Array); // TODO delete this
         const formattedData = data.reduce((acc, record) => {
             const dateFormatted = moment(record.date).format('YYYY-MM-DD');
             const startTotalCases = dateFormatted === startDateFormatted ? record.totalCases : undefined;
