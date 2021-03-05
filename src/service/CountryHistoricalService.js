@@ -26,7 +26,6 @@ const DEFAULT_START_DATE = moment('2020-01-01').toDate();
 const DEFAULT_END_DATE = moment('2022-12-31').toDate();
 
 const getCountryHistoricalData = async (countryName, startDate = moment('1970-01-01'), endDate = moment('2100-01-01')) => {
-    console.log(startDate, endDate); // TODO delete this
     const query = { location: countryName };
     const sort = { date: -1 };
     try {
@@ -53,6 +52,7 @@ const getCountryHistoricalData = async (countryName, startDate = moment('1970-01
 const getTotalsForRange = async (startDate = DEFAULT_START_DATE, endDate = DEFAULT_END_DATE, sortKey = SORT_KEY_TOTAL_CASES, sortOrder = SORT_ORDER_DESC) => {
     const sort = getSort(sortKey, sortOrder);
     const query = {
+        // TODO add filter to exclude anything without the two fields we care about
         date: {
             '$in': [
                 startDate,
@@ -60,42 +60,51 @@ const getTotalsForRange = async (startDate = DEFAULT_START_DATE, endDate = DEFAU
             ]
         }
     };
+    const startDateFormatted = moment(startDate).format('YYYY-MM-DD');
+    const endDateFormatted = moment(endDate).format('YYYY-MM-DD');
     try {
         const data = await connect(async (db) =>
             await db.collection(COLLECTION)
                 .find(query)
                 .sort(sort)
                 .toArray()
-        )
-        const formattedDate = data.reduce((acc, record) => {
-            const startTotalCases = record.date === startDate ? record.totalCases : undefined;
-            const endTotalCases = record.date === endDate ? record.totalCases : undefined;
-            const startTotalDeaths = record.date === startDate ? record.totalDeaths : undefined;
-            const endTotalDeaths = record.date === endDate ? record.totalDeaths : undefined;
-            const calculations = {
-                startTotalDeaths,
-                startTotalCases,
-                endTotalDeaths,
-                endTotalCases
-            };
+        );
+        console.log(data instanceof Array); // TODO delete this
+        const formattedData = data.reduce((acc, record) => {
+            const dateFormatted = moment(record.date).format('YYYY-MM-DD');
+            const startTotalCases = dateFormatted === startDateFormatted ? record.totalCases : undefined;
+            const endTotalCases = dateFormatted === endDateFormatted ? record.totalCases : undefined;
+            const startTotalDeaths = dateFormatted === startDateFormatted ? record.totalDeaths : undefined;
+            const endTotalDeaths = dateFormatted === endDateFormatted ? record.totalDeaths : undefined;
+            let calculations = {};
+            if (dateFormatted === startDateFormatted) {
+                calculations = {
+                    startTotalCases,
+                    startTotalDeaths
+                };
+            } else if (dateFormatted === endDateFormatted) {
+                calculations = {
+                    endTotalCases,
+                    endTotalDeaths
+                };
+            }
 
             if (acc[record.location]) {
                 return {
                     ...acc,
-                    [acc[record.location]]: {
+                    [record.location]: {
+                        ...acc[record.location],
                         ...calculations,
-                        ...acc[record.location]
                     }
                 };
             }
-
 
             return {
                 ...acc,
                 [record.location]: calculations
             };
         }, {});
-        return bumpMissingDataElements(data, sortKey);
+        return formattedData;
     } catch (ex) {
         throw new TraceError(`Error getting totals for range: ${startDate} ${endDate}`, ex);
     }
