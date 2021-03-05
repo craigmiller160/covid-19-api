@@ -48,7 +48,21 @@ const getCountryHistoricalData = async (countryName, startDate = moment('1970-01
 };
 
 const getTotalsForRange = async (startDate, endDate, sortKey = SORT_KEY_TOTAL_CASES, sortOrder = SORT_ORDER_DESC) => {
+    const sort = getSort(sortKey, sortOrder);
+    const query = {
 
+    };
+    try {
+        const data = await connect(async (db) =>
+            await db.collection(COLLECTION)
+                .find(query)
+                .sort(sort)
+                .toArray()
+        );
+        return bumpMissingDataElements(data, sortKey);
+    } catch (ex) {
+        throw new TraceError(`Error getting totals for range: ${startDate} ${endDate}`, ex);
+    }
 };
 
 module.exports = {
