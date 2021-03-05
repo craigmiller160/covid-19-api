@@ -19,19 +19,12 @@
 const moment = require('moment');
 const { getTotalsForRange } = require('../../service/CountryHistoricalService');
 
-const MONTH_FORMAT = 'MMYYYY';
-
 const createRoute = (app) => {
     app.get('/countries/current/range', async (req, res, next) => {
         const sortKey = req.query.sortKey || undefined;
         const sortOrder = req.query.sortOrder || undefined;
-        // TODO need default start/end months... maybe enforce in UI?
-        const startDate = req.query.startMonth ?
-            moment(req.query.startMonth, MONTH_FORMAT).toDate() :
-            undefined;
-        const endDate = req.query.endMonth ?
-            moment(req.query.endMonth, MONTH_FORMAT).toDate() :
-            undefined;
+        const startDate = req.query.startDate ? moment(req.query.startDate):  undefined;
+        const endDate = req.query.endDate ? moment(req.query.endDate) : undefined;
 
         try {
             const data = await getTotalsForRange(startDate, endDate, sortKey, sortOrder);
