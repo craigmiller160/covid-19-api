@@ -26,8 +26,12 @@ const createRoute = (app) => {
         const sortKey = req.query.sortKey || undefined;
         const sortOrder = req.query.sortOrder || undefined;
         // TODO need default start/end months... maybe enforce in UI?
-        const startDate = moment(req.query.startMonth, MONTH_FORMAT).toDate();
-        const endDate = moment(req.query.endMonth, MONTH_FORMAT).toDate();
+        const startDate = req.query.startMonth ?
+            moment(req.query.startMonth, MONTH_FORMAT).toDate() :
+            undefined;
+        const endDate = req.query.endMonth ?
+            moment(req.query.endMonth, MONTH_FORMAT).toDate() :
+            undefined;
 
         try {
             const data = await getTotalsForRange(startDate, endDate, sortKey, sortOrder);
