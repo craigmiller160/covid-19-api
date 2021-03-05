@@ -59,6 +59,7 @@ const getTotalsForRange = async (startDate = DEFAULT_START_DATE, endDate = DEFAU
             ]
         }
     };
+    // TODO for this to truly work, population data should be combined in the downloader
     const startDateFormatted = moment(startDate).format('YYYY-MM-DD');
     const endDateFormatted = moment(endDate).format('YYYY-MM-DD');
     try {
