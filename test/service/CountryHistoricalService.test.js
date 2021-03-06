@@ -53,6 +53,7 @@ describe('CountryHistoricalService', () => {
             })
             .map((record) => ({
                 ...record,
+                originalDate: record.date,
                 date: moment(record.date).format('YYYY-MM-DD')
             }))
             .reverse();
