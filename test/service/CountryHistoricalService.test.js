@@ -17,6 +17,10 @@
  */
 
 describe('CountryHistoricalService', () => {
+    beforeEach(() => {
+        jest.resetAllMocks();
+    });
+
     it('getCountryHistoricalData', () => {
         throw new Error();
     });
