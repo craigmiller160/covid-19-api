@@ -48,8 +48,7 @@ const formatDate = (record) => ({
 const getCountryHistoricalData = async (countryName, startDate = moment('1970-01-01'), endDate = moment('2100-01-01')) => {
     try {
         const data = await getCountryHistoricalDataQuery(countryName, startDate, endDate);
-        return data
-            .map((entry) => formatDate(entry));
+        return data.map(formatDate);
     } catch (ex) {
         throw new TraceError(`Error getting historical data for country ${countryName}`, ex);
     }
