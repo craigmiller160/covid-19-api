@@ -20,7 +20,7 @@ const moment = require('moment');
 const { getTotalsForRange } = require('../../service/CountryHistoricalService');
 
 const createRoute = (app) => {
-    app.get('/countries/current/range', async (req, res, next) => {
+    app.get('/countries/compare', async (req, res, next) => {
         const sortKey = req.query.sortKey || undefined;
         const sortOrder = req.query.sortOrder || undefined;
         const startDate = req.query.startDate ? moment(req.query.startDate):  undefined;
