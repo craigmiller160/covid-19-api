@@ -22,7 +22,7 @@ const moment = require('moment');
 
 const COLLECTION = 'country_history';
 
-const getCountryHistoricalData = async (countryName, startDate = moment('1970-01-01'), endDate = moment('2100-01-01')) => {
+const getCountryHistoricalDataQuery = (countryName, startDate, endDate) => {
     const query = {
         location: countryName ,
         date: {
@@ -31,13 +31,17 @@ const getCountryHistoricalData = async (countryName, startDate = moment('1970-01
         }
     };
     const sort = { date: -1 };
+    return connect(async (db) =>
+        await db.collection(COLLECTION)
+            .find(query)
+            .sort(sort)
+            .toArray()
+    );
+};
+
+const getCountryHistoricalData = async (countryName, startDate = moment('1970-01-01'), endDate = moment('2100-01-01')) => {
     try {
-        const data = await connect(async (db) =>
-            await db.collection(COLLECTION)
-                .find(query)
-                .sort(sort)
-                .toArray()
-        );
+        const data = await getCountryHistoricalDataQuery(countryName, startDate, endDate);
         return data
             .map((entry) => ({
                 ...entry,
