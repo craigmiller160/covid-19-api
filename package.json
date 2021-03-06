@@ -17,7 +17,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@craigmiller160/covid-19-config-mongo": "1.2.4",
+    "@craigmiller160/covid-19-config-mongo": "file:.yalc/@craigmiller160/covid-19-config-mongo",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "env-cmd": "^10.1.0",

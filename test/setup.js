@@ -16,16 +16,23 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-module.exports = {
-    mongodbMemoryServerOptions: {
-        instance: {
-            dbName: 'jest_test',
-            port: 45957
-        },
-        binary: {
-            version: '4.0.2',
-            skipMD5: true
-        },
-        autoStart: false
-    }
-};
+const { connect } = require('@craigmiller160/covid-19-config-mongo');
+
+beforeAll(async () => {
+    process.env.MONGO_USER = 'user';
+    process.env.MONGO_PASSWORD = 'password';
+    process.env.MONGO_HOST = '127.0.0.1';
+    process.env.MONGO_AUTH_DB = 'jest_test';
+    process.env.MONGO_PORT = '45957';
+    process.env.MONGO_DATABASE = 'jest';
+    process.env.ACTIVE_PROFILE = 'test';
+    process.env.USE_CONFIG_SERVER = 'false';
+    process.env.LOGGER_LEVEL = 'debug';
+
+    const result = await connect(async (db) => {
+        return await db.collection('test')
+            .find()
+            .toArray();
+    });
+    console.log(result); // TODO delete this
+});

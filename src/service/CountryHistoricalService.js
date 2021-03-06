@@ -19,7 +19,6 @@
 const { connect } = require('@craigmiller160/covid-19-config-mongo');
 const TraceError = require('trace-error');
 const moment = require('moment');
-const { SORT_KEY_TOTAL_CASES, SORT_ORDER_DESC, getSort, bumpMissingDataElements } = require('./sortUtils');
 
 const COLLECTION = 'country_history';
 
