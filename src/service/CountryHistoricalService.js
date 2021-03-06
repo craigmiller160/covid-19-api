@@ -22,8 +22,8 @@ const moment = require('moment');
 const { SORT_KEY_TOTAL_CASES, SORT_ORDER_DESC, getSort, bumpMissingDataElements } = require('./sortUtils');
 
 const COLLECTION = 'country_history';
-const DEFAULT_START_DATE = moment('2020-01-01').toDate();
-const DEFAULT_END_DATE = moment('2022-12-31').toDate();
+const DEFAULT_START_DATE = moment('2020-01-01');
+const DEFAULT_END_DATE = moment('2022-12-31');
 
 const getCountryHistoricalData = async (countryName, startDate = moment('1970-01-01'), endDate = moment('2100-01-01')) => {
     const query = { location: countryName };
@@ -54,13 +54,13 @@ const getTotalsForRange = async (startDate = DEFAULT_START_DATE, endDate = DEFAU
     const query = {
         date: {
             '$in': [
-                startDate,
-                endDate
+                startDate.toDate(),
+                endDate.toDate()
             ]
         }
     };
-    const startDateFormatted = moment(startDate).format('YYYY-MM-DD');
-    const endDateFormatted = moment(endDate).format('YYYY-MM-DD');
+    const startDateFormatted = startDate.format('YYYY-MM-DD');
+    const endDateFormatted = endDate.format('YYYY-MM-DD');
     try {
         const data = await connect(async (db) =>
             await db.collection(COLLECTION)
@@ -101,6 +101,7 @@ const getTotalsForRange = async (startDate = DEFAULT_START_DATE, endDate = DEFAU
                 ...acc,
                 [record.location]: {
                     ...calculations,
+                    location: record.location,
                     population: record.population
                 }
             };
