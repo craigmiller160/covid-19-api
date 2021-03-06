@@ -42,7 +42,7 @@ describe('CountryHistoricalService', () => {
 
     it('getCountryHistoricalData', async () => {
         const country = 'USA';
-        const startDate = moment('2020-01-22');
+        const startDate = moment('2020-01-23');
         const endDate = moment('2020-01-25');
         const expected = countryHistoryData
             .filter((record) => {
