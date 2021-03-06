@@ -46,7 +46,7 @@ const getCountryHistoricalData = async (countryName, startDate = moment('1970-01
     }
 };
 
-const getTotalsForRange = async (startDate, endDate) => {
+const getTotalsForRange = async (startDate = moment('1970-01-01'), endDate = moment('2100-01-01')) => {
     const query = {
         date: {
             '$in': [
