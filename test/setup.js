@@ -16,6 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+process.env.LOGGER_LEVEL = 'debug';
 const { connect } = require('@craigmiller160/covid-19-config-mongo');
 
 beforeAll(async () => {
@@ -27,12 +28,4 @@ beforeAll(async () => {
     process.env.MONGO_DATABASE = 'jest';
     process.env.ACTIVE_PROFILE = 'test';
     process.env.USE_CONFIG_SERVER = 'false';
-    process.env.LOGGER_LEVEL = 'debug';
-
-    const result = await connect(async (db) => {
-        return await db.collection('test')
-            .find()
-            .toArray();
-    });
-    console.log(result); // TODO delete this
 });
