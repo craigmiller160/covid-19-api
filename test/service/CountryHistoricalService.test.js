@@ -19,8 +19,10 @@
 const { connect } = require('@craigmiller160/covid-19-config-mongo');
 const countryHistoryData = require('../__data__/countryHistoryData');
 const {
-    COLLECTION
+    COLLECTION,
+    getCountryHistoricalData
 } = require('../../src/service/CountryHistoricalService');
+const moment = require('moment');
 
 describe('CountryHistoricalService', () => {
     beforeAll(async () => {
@@ -37,8 +39,24 @@ describe('CountryHistoricalService', () => {
         });
     });
 
-    it('getCountryHistoricalData', () => {
-        throw new Error();
+    it('getCountryHistoricalData', async () => {
+        const country = 'USA';
+        const startDate = moment('2020-01-22');
+        const endDate = moment('2020-01-25');
+        const expected = countryHistoryData
+            .filter((record) => {
+                const date = moment(record.date);
+                return record.location === country &&
+                    startDate.diff(date) <= 0 &&
+                    endDate.diff(date) >= 0;
+            })
+            .map((record) => ({
+                ...record,
+                date: moment(record.date).format('YYYY-MM-DD')
+            }))
+            .reverse();
+        const result = await getCountryHistoricalData(country, startDate, endDate);
+        expect(result).toEqual(expected);
     });
 
     it('getTotalsForRange', () => {
