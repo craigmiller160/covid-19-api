@@ -20,7 +20,8 @@ const { connect } = require('@craigmiller160/covid-19-config-mongo');
 const countryHistoryData = require('../__data__/countryHistoryData');
 const {
     COLLECTION,
-    getCountryHistoricalData
+    getCountryHistoricalData,
+    getTotalsForRange
 } = require('../../src/service/CountryHistoricalService');
 const moment = require('moment');
 
@@ -59,7 +60,13 @@ describe('CountryHistoricalService', () => {
         expect(result).toEqual(expected);
     });
 
-    it('getTotalsForRange', () => {
+    it('getTotalsForRange', async () => {
+        const result = await getTotalsForRange(moment('2020-01-22'), moment('2020-01-28'));
+        console.log(result); // TODO delete this
+        throw new Error();
+    });
+
+    it('getTotalsForRange month out of range', () => {
         throw new Error();
     });
 });
