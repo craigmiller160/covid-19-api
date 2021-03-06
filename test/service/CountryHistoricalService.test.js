@@ -17,7 +17,11 @@
  */
 
 describe('CountryHistoricalService', () => {
-    it('test', () => {
+    it('getCountryHistoricalData', () => {
+        throw new Error();
+    });
+
+    it('getTotalsForRange', () => {
         throw new Error();
     });
 });

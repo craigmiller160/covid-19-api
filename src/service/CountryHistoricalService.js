@@ -22,8 +22,6 @@ const moment = require('moment');
 const { SORT_KEY_TOTAL_CASES, SORT_ORDER_DESC, getSort, bumpMissingDataElements } = require('./sortUtils');
 
 const COLLECTION = 'country_history';
-const DEFAULT_START_DATE = moment('2020-01-01');
-const DEFAULT_END_DATE = moment('2022-12-31');
 
 const getCountryHistoricalData = async (countryName, startDate = moment('1970-01-01'), endDate = moment('2100-01-01')) => {
     const query = { location: countryName };
@@ -49,8 +47,7 @@ const getCountryHistoricalData = async (countryName, startDate = moment('1970-01
     }
 };
 
-const getTotalsForRange = async (startDate = DEFAULT_START_DATE, endDate = DEFAULT_END_DATE, sortKey = SORT_KEY_TOTAL_CASES, sortOrder = SORT_ORDER_DESC) => {
-    const sort = getSort(sortKey, sortOrder);
+const getTotalsForRange = async (startDate, endDate) => {
     const query = {
         date: {
             '$in': [
@@ -65,10 +62,9 @@ const getTotalsForRange = async (startDate = DEFAULT_START_DATE, endDate = DEFAU
         const data = await connect(async (db) =>
             await db.collection(COLLECTION)
                 .find(query)
-                .sort(sort)
                 .toArray()
         );
-        return data.reduce((acc, record) => {
+        const formattedData = data.reduce((acc, record) => {
             const dateFormatted = moment(record.date).format('YYYY-MM-DD');
             const startTotalCases = dateFormatted === startDateFormatted ? record.totalCases : undefined;
             const endTotalCases = dateFormatted === endDateFormatted ? record.totalCases : undefined;
@@ -106,6 +102,7 @@ const getTotalsForRange = async (startDate = DEFAULT_START_DATE, endDate = DEFAU
                 }
             };
         }, {});
+        return Object.values(formattedData);
     } catch (ex) {
         throw new TraceError(`Error getting totals for range: ${startDate} ${endDate}`, ex);
     }
