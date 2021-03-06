@@ -109,5 +109,6 @@ const getTotalsForRange = async (startDate, endDate) => {
 
 module.exports = {
     getCountryHistoricalData,
-    getTotalsForRange
+    getTotalsForRange,
+    COLLECTION
 };

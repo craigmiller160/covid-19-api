@@ -16,9 +16,25 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+const { connect } = require('@craigmiller160/covid-19-config-mongo');
+const countryHistoryData = require('../__data__/countryHistoryData');
+const {
+    COLLECTION
+} = require('../../src/service/CountryHistoricalService');
+
 describe('CountryHistoricalService', () => {
-    beforeEach(() => {
-        jest.resetAllMocks();
+    beforeAll(async () => {
+        await connect(async (db) => {
+            await db.collection(COLLECTION)
+                .insertMany(countryHistoryData);
+        });
+    });
+
+    afterAll(async () => {
+        await connect(async (db) => {
+            await db.collection(COLLECTION)
+                .drop();
+        });
     });
 
     it('getCountryHistoricalData', () => {
