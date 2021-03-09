@@ -54,67 +54,6 @@ const getCountryHistoricalData = async (countryName, startDate = moment('1970-01
     }
 };
 
-const getTotalsForRange = async (startDate = moment('1970-01-01'), endDate = moment('2100-01-01')) => {
-    const query = {
-        date: {
-            '$in': [
-                startDate.toDate(),
-                endDate.toDate()
-            ]
-        }
-    };
-    const startDateFormatted = startDate.format('YYYY-MM-DD');
-    const endDateFormatted = endDate.format('YYYY-MM-DD');
-    try {
-        const data = await connect(async (db) =>
-            await db.collection(COLLECTION)
-                .find(query)
-                .toArray()
-        );
-        const formattedData = data.reduce((acc, record) => {
-            const dateFormatted = moment(record.date).format('YYYY-MM-DD');
-            const startTotalCases = dateFormatted === startDateFormatted ? record.totalCases : undefined;
-            const endTotalCases = dateFormatted === endDateFormatted ? record.totalCases : undefined;
-            const startTotalDeaths = dateFormatted === startDateFormatted ? record.totalDeaths : undefined;
-            const endTotalDeaths = dateFormatted === endDateFormatted ? record.totalDeaths : undefined;
-            let calculations = {};
-            if (dateFormatted === startDateFormatted) {
-                calculations = {
-                    startTotalCases,
-                    startTotalDeaths
-                };
-            } else if (dateFormatted === endDateFormatted) {
-                calculations = {
-                    endTotalCases,
-                    endTotalDeaths
-                };
-            }
-
-            if (acc[record.location]) {
-                return {
-                    ...acc,
-                    [record.location]: {
-                        ...acc[record.location],
-                        ...calculations,
-                    }
-                };
-            }
-
-            return {
-                ...acc,
-                [record.location]: {
-                    ...calculations,
-                    location: record.location,
-                    population: record.population
-                }
-            };
-        }, {});
-        return Object.values(formattedData);
-    } catch (ex) {
-        throw new TraceError(`Error getting totals for range: ${startDate} ${endDate}`, ex);
-    }
-};
-
 module.exports = {
     getCountryHistoricalData,
     getTotalsForRange,
