@@ -20,8 +20,7 @@ const { connect } = require('@craigmiller160/covid-19-config-mongo');
 const countryHistoryData = require('../__data__/countryHistoryData');
 const {
     COLLECTION,
-    getCountryHistoricalData,
-    getTotalsForRange
+    getCountryHistoricalData
 } = require('../../src/service/CountryHistoricalService');
 const moment = require('moment');
 
