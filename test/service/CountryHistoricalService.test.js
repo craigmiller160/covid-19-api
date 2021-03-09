@@ -60,14 +60,4 @@ describe('CountryHistoricalService', () => {
         const result = await getCountryHistoricalData(country, startDate, endDate);
         expect(result).toEqual(expected);
     });
-
-    it('getTotalsForRange', async () => {
-        const result = await getTotalsForRange(moment('2020-01-22'), moment('2020-01-28'));
-        console.log(result); // TODO delete this
-        throw new Error();
-    });
-
-    it('getTotalsForRange month out of range', () => {
-        throw new Error();
-    });
 });
