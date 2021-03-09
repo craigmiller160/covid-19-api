@@ -16,18 +16,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const moment = require('moment');
-const { getTotalsForRange } = require('../../service/CountryHistoricalService');
+const { getCountryCompareData } = require('../../service/CountryCompareService');
 
 const createRoute = (app) => {
     app.get('/countries/compare', async (req, res, next) => {
-        const sortKey = req.query.sortKey || undefined;
-        const sortOrder = req.query.sortOrder || undefined;
-        const startDate = req.query.startDate ? moment(req.query.startDate):  undefined;
-        const endDate = req.query.endDate ? moment(req.query.endDate) : undefined;
-
         try {
-            const data = await getTotalsForRange(startDate, endDate, sortKey, sortOrder);
+            const data = await getCountryCompareData();
             res.json(data);
         } catch (ex) {
             next({
