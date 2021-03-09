@@ -56,6 +56,5 @@ const getCountryHistoricalData = async (countryName, startDate = moment('1970-01
 
 module.exports = {
     getCountryHistoricalData,
-    getTotalsForRange,
     COLLECTION
 };
