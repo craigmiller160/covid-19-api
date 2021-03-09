@@ -4,10 +4,15 @@ const moment = require('moment');
 
 const COLLECTION = 'country_compare';
 
-const getCountryCompareData = (countryName, startDate, endDate) => {
-
+const getCountryCompareData = async () => {
+    return connect(async (db) =>
+        await db.collection(COLLECTION)
+            .find()
+            .toArray()
+    );
 };
 
 module.exports = {
+    COLLECTION,
     getCountryCompareData
 };
