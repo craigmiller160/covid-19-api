@@ -13,10 +13,11 @@
   "scripts": {
     "start": "env-cmd node ./src",
     "start:prod": "node ./src",
-    "build": "echo 'No build needed'"
+    "build": "jest && echo 'No build needed'",
+    "test": "jest"
   },
   "dependencies": {
-    "@craigmiller160/covid-19-config-mongo": "1.2.4",
+    "@craigmiller160/covid-19-config-mongo": "^1.3.0-beta",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "env-cmd": "^10.1.0",
@@ -28,6 +29,7 @@
     "trace-error": "^1.0.3"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^1.2.3",
     "@types/jest": "^25.2.3",
     "archiver": "^3.1.1",
     "jest": "^26.0.1",

@@ -13,8 +13,12 @@ module.exports = {
     testMatch: [
         '<rootDir>/test/**/*.{test,Spec}.js'
     ],
+    preset: '@shelf/jest-mongodb',
     moduleDirectories: [
         'node_modules',
         'src'
+    ],
+    setupFilesAfterEnv: [
+        '<rootDir>/test/setup.js'
     ]
 };
