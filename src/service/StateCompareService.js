@@ -16,8 +16,24 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-describe('getCountryCompareData', () => {
-    it('test', () => {
-        throw new Error();
-    });
-});
+const { connect } = require('@craigmiller160/covid-19-config-mongo');
+const TraceError = require('trace-error');
+
+const COLLECTION = 'state_compare';
+
+const getStateCompareData = async () => {
+    try {
+        return await connect(async (db) =>
+            await db.collection(COLLECTION)
+                .find()
+                .toArray()
+        );
+    } catch (ex) {
+        throw new TraceError('Error getting country compare data', ex);
+    }
+};
+
+module.exports = {
+    COLLECTION,
+    getStateCompareData
+};
