@@ -52,8 +52,10 @@ healthcheck(app);
 applyEndMiddleware(app);
 
 const startExpressServer = () => {
-    const server = https.createServer(tlsProps, app);
-    server.listen(port, () => logger.info(`Express server running on port ${port}`));
+	const server = https.createServer(tlsProps, app);
+	server.listen(port, () =>
+		logger.info(`Express server running on port ${port}`)
+	);
 };
 
 module.exports = startExpressServer;

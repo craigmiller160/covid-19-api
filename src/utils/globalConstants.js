@@ -20,6 +20,6 @@ const WORLD_LOCATION = { location: 'World', displayLocation: 'World' };
 const US_LOCATION = { location: 'USA', displayLocation: 'USA' };
 
 module.exports = {
-    WORLD_LOCATION,
-    US_LOCATION
+	WORLD_LOCATION,
+	US_LOCATION
 };

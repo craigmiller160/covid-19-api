@@ -19,17 +19,17 @@
 const { getStateCompareData } = require('../../service/StateCompareService');
 
 const createRoute = (app) => {
-    app.get('/states/compare', async (req, res, next) => {
-        try {
-            const data = await getStateCompareData();
-            res.json(data);
-        } catch (ex) {
-            next({
-                message: 'Error getting state compare data',
-                error: ex
-            });
-        }
-    });
+	app.get('/states/compare', async (req, res, next) => {
+		try {
+			const data = await getStateCompareData();
+			res.json(data);
+		} catch (ex) {
+			next({
+				message: 'Error getting state compare data',
+				error: ex
+			});
+		}
+	});
 };
 
 module.exports = createRoute;

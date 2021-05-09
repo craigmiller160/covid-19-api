@@ -17,15 +17,14 @@
  */
 
 process.env.LOGGER_LEVEL = 'debug';
-const { connect } = require('@craigmiller160/covid-19-config-mongo');
 
 beforeAll(async () => {
-    process.env.MONGO_USER = 'user';
-    process.env.MONGO_PASSWORD = 'password';
-    process.env.MONGO_HOST = '127.0.0.1';
-    process.env.MONGO_AUTH_DB = 'jest_test';
-    process.env.MONGO_PORT = '45957';
-    process.env.MONGO_DATABASE = 'jest';
-    process.env.ACTIVE_PROFILE = 'test';
-    process.env.USE_CONFIG_SERVER = 'false';
+	process.env.MONGO_USER = 'user';
+	process.env.MONGO_PASSWORD = 'password';
+	process.env.MONGO_HOST = '127.0.0.1';
+	process.env.MONGO_AUTH_DB = 'jest_test';
+	process.env.MONGO_PORT = '45957';
+	process.env.MONGO_DATABASE = 'jest';
+	process.env.ACTIVE_PROFILE = 'test';
+	process.env.USE_CONFIG_SERVER = 'false';
 });

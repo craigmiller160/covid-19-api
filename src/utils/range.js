@@ -1,4 +1,3 @@
-
 /*
  *     covid-19-api
  *     Copyright (C) 2020 Craig Miller
@@ -21,6 +20,6 @@ const rangeUntil = (endingExclusive) => [...new Array(endingExclusive).keys()];
 const rangeTo = (endingInclusive) => [...new Array(endingInclusive + 1).keys()];
 
 module.exports = {
-    rangeUntil,
-    rangeTo
+	rangeUntil,
+	rangeTo
 };
