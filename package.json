@@ -13,7 +13,7 @@
   "scripts": {
     "start": "env-cmd node ./src",
     "start:prod": "node ./src",
-    "build": "jest && echo 'No build needed'",
+    "build": "es-lint-scripts js && jest && echo 'No build needed'",
     "test": "jest",
     "lint": "es-lint-scripts js"
   },
