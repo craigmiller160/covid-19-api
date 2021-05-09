@@ -22,16 +22,16 @@ const errorMiddleware = require('./errorMiddleware');
 const notFoundMiddleware = require('./notFoundMiddleware');
 
 const applyStartMiddleware = (app) => {
-    app.use(bodyParser.json());
-    app.use(loggerMiddleware);
+	app.use(bodyParser.json());
+	app.use(loggerMiddleware);
 };
 
 const applyEndMiddleware = (app) => {
-    app.use(notFoundMiddleware);
-    app.use(errorMiddleware);
+	app.use(notFoundMiddleware);
+	app.use(errorMiddleware);
 };
 
 module.exports = {
-    applyStartMiddleware,
-    applyEndMiddleware
+	applyStartMiddleware,
+	applyEndMiddleware
 };

@@ -16,20 +16,22 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const { getCountryCompareData } = require('../../service/CountryCompareService');
+const {
+	getCountryCompareData
+} = require('../../service/CountryCompareService');
 
 const createRoute = (app) => {
-    app.get('/countries/compare', async (req, res, next) => {
-        try {
-            const data = await getCountryCompareData();
-            res.json(data);
-        } catch (ex) {
-            next({
-                message: 'Error getting country compare data',
-                error: ex
-            });
-        }
-    });
+	app.get('/countries/compare', async (req, res, next) => {
+		try {
+			const data = await getCountryCompareData();
+			res.json(data);
+		} catch (ex) {
+			next({
+				message: 'Error getting country compare data',
+				error: ex
+			});
+		}
+	});
 };
 
 module.exports = createRoute;

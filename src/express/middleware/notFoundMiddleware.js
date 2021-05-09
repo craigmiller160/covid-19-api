@@ -1,4 +1,3 @@
-
 /*
  *     covid-19-api
  *     Copyright (C) 2020 Craig Miller
@@ -18,10 +17,10 @@
  */
 
 const notFoundMiddleware = (req, res, next) => {
-    next({
-        status: 404,
-        message: `Not Found`
-    });
+	next({
+		status: 404,
+		message: `Not Found`
+	});
 };
 
 module.exports = notFoundMiddleware;
