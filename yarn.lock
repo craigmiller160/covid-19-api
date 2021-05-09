@@ -394,8 +394,10 @@
     retry "^0.12.0"
     shell-env "^3.0.0"
 
-"@craigmiller160/es-lint-config@file:.yalc/@craigmiller160/es-lint-config":
-  version "1.0.0-beta"
+"@craigmiller160/es-lint-config@^1.0.0":
+  version "1.0.0"
+  resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/@craigmiller160/es-lint-config/-/es-lint-config-1.0.0.tgz#3e1aeddff1c04b37f9d91541d6037d0dca591e0f"
+  integrity sha512-751ikFHqdSV3fBx3+3AixuXodhxFF/Ko+CCFD7fLl9k4JBWtW4x7kA42tL9NA5fJBPGfHZ610m78GqQQcPS0bQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.22.0"
     "@typescript-eslint/parser" "^4.22.0"

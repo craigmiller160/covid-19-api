@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "@craigmiller160/covid-19-config-mongo": "1.3.0",
-    "@craigmiller160/es-lint-config": "file:.yalc/@craigmiller160/es-lint-config",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "env-cmd": "^10.1.0",
@@ -31,6 +30,7 @@
     "trace-error": "^1.0.3"
   },
   "devDependencies": {
+    "@craigmiller160/es-lint-config": "^1.0.0",
     "@shelf/jest-mongodb": "^1.2.3",
     "@types/jest": "^25.2.3",
     "archiver": "^3.1.1",
