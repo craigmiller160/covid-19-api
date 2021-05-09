@@ -14,10 +14,12 @@
     "start": "env-cmd node ./src",
     "start:prod": "node ./src",
     "build": "jest && echo 'No build needed'",
-    "test": "jest"
+    "test": "jest",
+    "lint": "es-lint-scripts default"
   },
   "dependencies": {
     "@craigmiller160/covid-19-config-mongo": "1.3.0",
+    "@craigmiller160/es-lint-config": "file:.yalc/@craigmiller160/es-lint-config",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "env-cmd": "^10.1.0",
