@@ -18,7 +18,7 @@
 
 const { logger } = require('@craigmiller160/covid-19-config-mongo');
 
-const errorMiddleware = (error, req, res, next) => {
+const errorMiddleware = (error, req, res) => {
 	let errorPayload;
 	const path = `${req.method} ${req.path}`;
 	if (error instanceof Error) {

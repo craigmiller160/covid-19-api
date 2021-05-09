@@ -18,8 +18,6 @@
 
 const SORT_KEY_TOTAL_CASES = 'totalCases';
 const SORT_KEY_TOTAL_DEATHS = 'totalDeaths';
-const SORT_KEY_CASES_PER_MILLION = 'totalCasesPerMillion';
-const SORT_KEY_DEATHS_PER_MILLION = 'totalDeathsPerMillion';
 const SORT_ORDER_ASC = 'asc';
 const SORT_ORDER_DESC = 'desc';
 
