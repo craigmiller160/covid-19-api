@@ -17,7 +17,6 @@
  */
 
 process.env.LOGGER_LEVEL = 'debug';
-const { connect } = require('@craigmiller160/covid-19-config-mongo');
 
 beforeAll(async () => {
 	process.env.MONGO_USER = 'user';
